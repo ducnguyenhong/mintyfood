@@ -9,12 +9,14 @@ config.autoAddCss = false
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider><Box>
-      <NavBar />
-      <Box mt={20}>
-        <Component {...pageProps} />
+    <ChakraProvider>
+      <Box>
+        <NavBar />
+        <Box mt={20}>
+          <Component {...pageProps} />
+        </Box>
       </Box>
-    </Box></ChakraProvider>
+    </ChakraProvider>
   )
 }
 

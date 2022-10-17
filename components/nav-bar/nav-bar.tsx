@@ -7,7 +7,7 @@ import ImgLogo from './images/media-site-logo.png'
 const NavBar: React.FC = () => {
   return (
     <Flex bgColor="#FFF" boxShadow="sm" h={16} position="fixed" top={0} left={0} w="full" alignItems="center" px={16} justifyContent="space-between">
-      <Flex flex={2 / 10}>
+      <Flex>
         <Link href="/">
           <a>
             <Flex alignItems="center">
@@ -18,10 +18,7 @@ const NavBar: React.FC = () => {
         </Link>
       </Flex>
 
-      <Flex flex={5 / 10}>
-      </Flex>
-
-      <Flex flex={3 / 10}>
+      <Flex>
         <Link href="/layouts">
           <a><Text>Layouts</Text></a>
         </Link>
