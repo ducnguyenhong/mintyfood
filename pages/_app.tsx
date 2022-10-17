@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider>
       <Box>
         <NavBar />
-        <Box mt={20}>
+        <Box mt="65px">
           <Component {...pageProps} />
         </Box>
       </Box>
