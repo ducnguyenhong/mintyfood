@@ -4,9 +4,9 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import Footer from 'components/footer'
 import Header from 'components/header'
 import type { AppProps } from 'next/app'
+import 'react-multi-carousel/lib/styles.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import '../styles/globals.css'
-
 
 config.autoAddCss = false
 

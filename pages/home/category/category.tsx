@@ -27,7 +27,7 @@ const HomeCategory: React.FC = () => {
   ), [])
 
   return (
-    <Flex w="full" alignItems="center" justifyContent="center" mt={10}>
+    <Flex w="full" alignItems="center" justifyContent="center" mt={20}>
       {CATEGORY_DATA.map(item => {
         const { title, description, route, bgImg } = item
         return (

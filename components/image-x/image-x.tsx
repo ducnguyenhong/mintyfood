@@ -5,7 +5,7 @@ import { memo } from 'react'
 type ImageXProps = Omit<BoxProps, 'as'> & ImageProps
 
 const ImageX: React.FC<ImageXProps> = (props) => {
-  const { src, alt, ...rest } = props
+  const { src, alt = "image", ...rest } = props
   return (
     <Box
       position="relative"
