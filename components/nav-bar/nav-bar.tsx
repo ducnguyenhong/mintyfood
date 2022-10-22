@@ -7,7 +7,7 @@ import NavBarMenu from "./subs/nav-bar.menu"
 
 const NavBar: React.FC = () => {
   return (
-    <Flex bgColor="#FFF" boxShadow="sm" borderBottomWidth={1} h="65px" position="fixed" top={0} left={0} w="full" alignItems="center" px={16} justifyContent="space-between">
+    <Flex bgColor="#FFF" boxShadow="sm" borderBottomWidth={1} h="65px" position="fixed" top={0} left={0} w="full" alignItems="center" px={16} justifyContent="space-between" zIndex={9999}>
       <Flex>
         <Link href="/">
           <a>
