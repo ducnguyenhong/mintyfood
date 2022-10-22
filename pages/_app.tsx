@@ -1,10 +1,12 @@
 import { Box, ChakraProvider } from '@chakra-ui/react'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import NavBar from 'components/nav-bar'
+import Footer from 'components/footer'
+import Header from 'components/header'
 import type { AppProps } from 'next/app'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import '../styles/globals.css'
+
 
 config.autoAddCss = false
 
@@ -12,10 +14,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
       <Box>
-        <NavBar />
+        <Header />
         <Box mt="65px">
           <Component {...pageProps} />
         </Box>
+        <Footer />
       </Box>
     </ChakraProvider>
   )
