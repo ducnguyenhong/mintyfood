@@ -10,14 +10,14 @@ export const NAVBAR_DATA: NavBarItem[] = [
     title: 'Trang chủ',
     route: '/'
   },
-  {
-    id: 2,
-    title: 'Giới thiệu',
-    route: '/introduction'
-  },
+  // {
+  //   id: 2,
+  //   title: 'Giới thiệu',
+  //   route: '/introduction'
+  // },
   {
     id: 3,
-    title: 'Website',
+    title: 'Đồ ăn',
     route: '/website-services'
     // subs: [
     //   {
@@ -39,7 +39,7 @@ export const NAVBAR_DATA: NavBarItem[] = [
   },
   {
     id: 4,
-    title: 'Mobile app',
+    title: 'Thức uống',
     route: '/mobile-app-services'
     // subs: [
     //   {
@@ -61,6 +61,11 @@ export const NAVBAR_DATA: NavBarItem[] = [
   },
   {
     id: 5,
+    title: 'Thực phẩm',
+    route: '/mobile-app-services'
+  },
+  {
+    id: 6,
     title: 'Liên hệ',
     route: '/contact'
     // subs: [

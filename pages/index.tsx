@@ -5,7 +5,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Media Site - Thiết Kế Website & Mobile App Chuyên Nghiệp</title>
+        <title>Minty Food - Đồ Ăn & Thức Uống Dinh Dưỡng</title>
       </Head>
 
       <h1 >

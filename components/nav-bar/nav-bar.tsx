@@ -13,7 +13,7 @@ const NavBar: React.FC = () => {
           <a>
             <Flex alignItems="center">
               <ImageX src={ImgLogo} alt="logo" boxSize={12} />
-              <Heading as="h3" fontSize={20} color="#e3594a" ml={4} >Media <Text as="span" fontSize={20} fontWeight={400} color="#66BC42">Site</Text></Heading>
+              <Heading as="h3" fontSize={20} color="#e3594a" ml={4} >Minty <Text as="span" fontSize={20} fontWeight={400} color="#66BC42">Food</Text></Heading>
             </Flex>
           </a>
         </Link>
