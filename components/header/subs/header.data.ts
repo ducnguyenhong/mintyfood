@@ -1,4 +1,4 @@
-import { faBowlFood, faHome, faMugHot, faPepperHot, faPhone, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faBowlFood, faHome, faMugHot, faPepperHot, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 export interface NavBarItem {
   id: number;
@@ -70,28 +70,5 @@ export const HEADER_DATA: NavBarItem[] = [
     icon: faPepperHot,
     title: 'Thực phẩm',
     route: '/mobile-app-services'
-  },
-  {
-    id: 6,
-    icon: faPhone,
-    title: 'Liên hệ',
-    route: '/contact'
-    // subs: [
-    //   {
-    //     id: 4.1,
-    //     title: 'Giới thiệu',
-    //     route: '/gioi-thieu'
-    //   },
-    //   {
-    //     id: 4.2,
-    //     title: 'Liên hệ',
-    //     route: '/lien-he'
-    //   },
-    //   {
-    //     id: 4.3,
-    //     title: 'Thanh toán',
-    //     route: '/thanh-toan'
-    //   }
-    // ]
   }
 ];

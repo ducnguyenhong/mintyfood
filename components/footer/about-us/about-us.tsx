@@ -12,6 +12,10 @@ const FooterAboutUs: React.FC = () => {
       link: 'tel:0868233430'
     },
     {
+      title: 'Thanh toán',
+      link: 'mailto:hayen.lalatet@gmail.com'
+    },
+    {
       title: 'Khiếu nại',
       link: 'mailto:hayen.lalatet@gmail.com'
     },
