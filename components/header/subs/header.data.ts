@@ -1,4 +1,4 @@
-import { faBowlFood, faHome, faMugHot, faPepperHot, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faBlog, faBowlFood, faHome, faMugHot, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 export interface NavBarItem {
   id: number;
@@ -67,8 +67,8 @@ export const HEADER_DATA: NavBarItem[] = [
   },
   {
     id: 5,
-    icon: faPepperHot,
-    title: 'Thực phẩm',
+    icon: faBlog,
+    title: 'Blog',
     route: '/mobile-app-services'
   }
 ];

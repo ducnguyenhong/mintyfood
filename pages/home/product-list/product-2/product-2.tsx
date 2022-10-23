@@ -1,7 +1,8 @@
-import { AspectRatio, Badge, Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { AspectRatio, Badge, Box, Flex, Text } from "@chakra-ui/react";
 import { faCartPlus, faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ImageX from "components/image-x";
+import Section from "components/section";
 import { memo, useMemo } from "react";
 import Carousel from "react-multi-carousel";
 import { formatPrice } from "utils/helper";
@@ -77,24 +78,7 @@ const ProductList2: React.FC = () => {
 
   return (
     <Box mt={28}>
-      <Box position="relative" pt={4} h={8}>
-        <Heading
-          as="h3"
-          w="fit-content"
-          textTransform="uppercase"
-          px={4}
-          color="green"
-          fontSize={18}
-          position="absolute"
-          bgColor="#FFF"
-          top="1px"
-          left={0}
-          right={0}
-          mx="auto"
-          textAlign="center"
-        >Thức uống</Heading>
-        <Box w="full" h="1px" bgColor="#d9d9d9" />
-      </Box>
+      <Section title="Thức uống" />
 
       <Box mt={10}>
         <Carousel responsive={responsive}>

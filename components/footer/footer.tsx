@@ -8,7 +8,7 @@ import FooterNews from "./news"
 const Footer: React.FC = () => {
   return (
     <footer>
-      <Flex mt={10} bgColor="gray" px={32} gap={16} py={16}>
+      <Flex mt={20} bgColor="gray" px={32} gap={16} py={16}>
         <FooterInfo />
         <FooterContact />
         <FooterNews />
