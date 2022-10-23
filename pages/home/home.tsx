@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import HomeCategory from './category'
+import HomeNews from './news'
 import ProductList from './product-list'
 import HomeSlider from './slider'
 
@@ -16,6 +17,8 @@ const Home: NextPage = () => {
       <HomeCategory />
 
       <ProductList />
+
+      <HomeNews />
     </div>
   )
 }
