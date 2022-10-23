@@ -1,7 +1,8 @@
-import { AspectRatio, Badge, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Text, useDisclosure } from "@chakra-ui/react";
+import { AspectRatio, Badge, Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Text, useDisclosure } from "@chakra-ui/react";
 import { faCartPlus, faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ImageX from "components/image-x";
+import ProductItemPreview from "components/product-item-preview";
 import { ProductItem } from "models/product-item";
 import { memo } from "react";
 import { formatPrice } from "utils/helper";
@@ -66,18 +67,11 @@ const ProductItemShow: React.FC<ProductItemProps> = ({ item }) => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>
-            <Text color="#66BC42" fontWeight={700} fontSize={18}>{name}</Text>
+            <Text color="#5daa3c" fontWeight={700} fontSize={19}>{name}</Text>
+            <Divider mt={4} />
           </DrawerHeader>
           <DrawerBody>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Consequat nisl vel pretium lectus quam id. Semper quis lectus
-              nulla at volutpat diam ut venenatis. Dolor morbi non arcu risus
-              quis varius quam quisque. Massa ultricies mi quis hendrerit dolor
-              magna eget est lorem. Erat imperdiet sed euismod nisi porta.
-              Lectus vestibulum mattis ullamcorper velit.
-            </p>
+            <ProductItemPreview item={item} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>

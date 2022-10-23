@@ -72,15 +72,6 @@ const ProductListTop: React.FC = () => {
       category: 'DRINK',
       quantity: 10
     },
-    {
-      id: 6,
-      image: '/images/sp-5.png',
-      name: 'Sinh tố Dâu Tây',
-      curentPrice: 20_000,
-      initPrice: 22_000,
-      category: 'DRINK',
-      quantity: 10
-    }
   ]), [])
 
   return (
