@@ -12,7 +12,7 @@ const HeaderCart: React.FC = () => {
         w={10}
         h={10}
         borderRadius="full"
-        bgColor='#66BC42'
+        bgColor='#38A169'
         alignItems="center"
         justifyContent="center"
         cursor="pointer"

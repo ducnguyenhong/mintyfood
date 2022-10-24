@@ -67,7 +67,7 @@ const ProductItemShow: React.FC<ProductItemProps> = ({ item }) => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>
-            <Text color="#5daa3c" fontWeight={700} fontSize={19}>{name}</Text>
+            <Text color="#38A169" fontWeight={700} fontSize={19}>{name}</Text>
             <Divider mt={4} />
           </DrawerHeader>
           <DrawerBody>

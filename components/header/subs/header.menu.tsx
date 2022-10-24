@@ -16,11 +16,11 @@ const HeaderMenu: React.FC = () => {
         return (
           <Link href={route} key={id}>
             <a>
-              <Flex alignItems="center" key={id} mx={3} bgColor={isActive ? '#5daa3c' : 'transparent'} px={6} py={1.5} borderRadius={4}
+              <Flex alignItems="center" key={id} mx={3} bgColor={isActive ? '#38A169' : 'transparent'} px={6} py={1.5} borderRadius={4}
                 data-group
                 transitionDuration="300ms"
                 _hover={{
-                  bgColor: '#529735'
+                  bgColor: '#2F855A'
                 }}>
                 <Text color={isActive ? '#FFF' : '#292D32'} _groupHover={{ color: '#FFF' }} transitionDuration="200ms" mt="-1px">
                   <FontAwesomeIcon icon={icon} size="1x" />

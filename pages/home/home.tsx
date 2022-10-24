@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import HomeCategory from './category'
+import HomeIntro from './introduction'
 import HomeNews from './news'
 import ProductList from './product-list'
-import HomeSlider from './slider'
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <title>Minty Food - Đồ Ăn & Thức Uống Dinh Dưỡng</title>
       </Head>
 
-      <HomeSlider />
+      <HomeIntro />
 
       <HomeCategory />
 
