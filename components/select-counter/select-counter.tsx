@@ -1,12 +1,29 @@
-import { Box, Flex, Text } from "@chakra-ui/react"
-import { memo, useCallback, useState } from "react"
+import { Box, Flex, Input, Text } from "@chakra-ui/react"
+import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useState } from "react"
 
-const SelectCounter: React.FC = () => {
+interface SelectCounterProps {
+  defaultValue?: number
+}
+
+const SelectCounter: React.FC<SelectCounterProps> = forwardRef((props, ref) => {
+  const { defaultValue } = props
   const [count, setCount] = useState<number>(1)
 
   const onAdd = useCallback(() => setCount(prev => prev + 1), [])
 
   const onMinus = useCallback(() => setCount(prev => prev > 1 ? prev - 1 : prev), [])
+
+  useImperativeHandle(ref, () => ({
+    getValue() {
+      return count
+    }
+  }), [count])
+
+  useEffect(() => {
+    if (defaultValue) {
+      setCount(defaultValue)
+    }
+  }, [defaultValue])
 
   return (
     <Flex alignItems="center">
@@ -32,8 +49,19 @@ const SelectCounter: React.FC = () => {
           </Text>
         </button>
       </Flex>
-      <Box w={20}>
-        <Text textAlign="center" fontSize={17} fontWeight={600}>{count}</Text>
+      <Box w={16} mx={5}>
+        <Input
+          type="number"
+          textAlign="center"
+          fontSize={17}
+          fontWeight={600}
+          px={1}
+          value={count}
+          _focus={{
+            border: '1px solid green',
+          }}
+          onChange={e => setCount(Number(e.target.value))}
+        />
       </Box>
       <Flex
         w={8}
@@ -59,6 +87,8 @@ const SelectCounter: React.FC = () => {
       </Flex>
     </Flex>
   )
-}
+})
+
+SelectCounter.displayName = 'SelectCounter'
 
 export default memo(SelectCounter)
