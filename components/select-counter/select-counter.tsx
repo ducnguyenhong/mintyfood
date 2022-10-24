@@ -3,10 +3,11 @@ import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useState
 
 interface SelectCounterProps {
   defaultValue?: number
+  onChange?: (count: number) => void
 }
 
 const SelectCounter: React.FC<SelectCounterProps> = forwardRef((props, ref) => {
-  const { defaultValue } = props
+  const { defaultValue, onChange } = props
   const [count, setCount] = useState<number>(1)
 
   const onAdd = useCallback(() => setCount(prev => prev + 1), [])
@@ -18,6 +19,8 @@ const SelectCounter: React.FC<SelectCounterProps> = forwardRef((props, ref) => {
       return count
     }
   }), [count])
+
+  useEffect(() => onChange && onChange(count), [count, onChange])
 
   useEffect(() => {
     if (defaultValue) {

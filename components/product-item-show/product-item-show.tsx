@@ -62,7 +62,7 @@ const ProductItemShow: React.FC<ProductItemProps> = ({ item }) => {
         </Flex>
       </Flex>
 
-      <Drawer onClose={onClose} isOpen={isOpen} size="lg" autoFocus={false} placement="left">
+      <Drawer preserveScrollBarGap onClose={onClose} isOpen={isOpen} size="lg" autoFocus={false} placement="left">
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />

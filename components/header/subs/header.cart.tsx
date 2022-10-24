@@ -7,7 +7,7 @@ const HeaderCart: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
-    <>
+    <Flex>
       <Flex
         w={10}
         h={10}
@@ -34,7 +34,7 @@ const HeaderCart: React.FC = () => {
         </Flex>
       </Flex>
 
-      <Drawer onClose={onClose} isOpen={isOpen} size="lg" autoFocus={false}>
+      <Drawer preserveScrollBarGap onClose={onClose} isOpen={isOpen} size="lg" autoFocus={false}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
@@ -52,8 +52,7 @@ const HeaderCart: React.FC = () => {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </>
-
+    </Flex>
   )
 }
 

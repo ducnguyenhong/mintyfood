@@ -8,7 +8,7 @@ import HeaderSearch from "./subs/header.search"
 
 const Header: React.FC = () => {
   return (
-    <Flex bgColor="#FFF" boxShadow="sm" borderBottomWidth={1} h="65px" position="fixed" top={0} left={0} w="full" alignItems="center" px={16} justifyContent="space-between" zIndex={99}>
+    <Flex bgColor="#FFF" boxShadow="sm" borderBottomWidth={1} h="65px" position="fixed" top={0} left={0} w="full" alignItems="center" px={16} justifyContent="space-between" zIndex={500}>
       <Flex alignItems="center">
         <Flex>
           <Link href="/">
@@ -27,6 +27,8 @@ const Header: React.FC = () => {
         <HeaderMenu />
         <HeaderCart />
       </Flex>
+
+
     </Flex>
   )
 }

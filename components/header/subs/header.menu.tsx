@@ -8,7 +8,6 @@ import { HEADER_DATA } from "./header.data"
 const HeaderMenu: React.FC = () => {
   const router = useRouter()
 
-
   return (
     <Flex alignItems="center">
       {HEADER_DATA.map(item => {
@@ -17,11 +16,11 @@ const HeaderMenu: React.FC = () => {
         return (
           <Link href={route} key={id}>
             <a>
-              <Flex alignItems="center" key={id} mx={3} bgColor={isActive ? '#66BC42' : 'transparent'} px={6} py={1.5} borderRadius={4}
+              <Flex alignItems="center" key={id} mx={3} bgColor={isActive ? '#5daa3c' : 'transparent'} px={6} py={1.5} borderRadius={4}
                 data-group
                 transitionDuration="300ms"
                 _hover={{
-                  bgColor: '#66BC42'
+                  bgColor: '#529735'
                 }}>
                 <Text color={isActive ? '#FFF' : '#292D32'} _groupHover={{ color: '#FFF' }} transitionDuration="200ms" mt="-1px">
                   <FontAwesomeIcon icon={icon} size="1x" />

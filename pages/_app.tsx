@@ -6,21 +6,24 @@ import Header from 'components/header'
 import type { AppProps } from 'next/app'
 import 'react-multi-carousel/lib/styles.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
+import { RecoilRoot } from 'recoil'
 import '../styles/globals.css'
 
 config.autoAddCss = false
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
-      <Box>
-        <Header />
-        <Box mt="65px">
-          <Component {...pageProps} />
+    <RecoilRoot>
+      <ChakraProvider>
+        <Box>
+          <Header />
+          <Box mt="65px">
+            <Component {...pageProps} />
+          </Box>
+          <Footer />
         </Box>
-        <Footer />
-      </Box>
-    </ChakraProvider>
+      </ChakraProvider>
+    </RecoilRoot>
   )
 }
 
