@@ -24,8 +24,9 @@ const ProductItemShow: React.FC<ProductItemProps> = ({ item }) => {
         px={5}
         py={4}
         mx={6}
-        mb={4}
+        mb={5}
         borderRadius={15}
+        bg="#FFF"
         border="1px solid #e6e6e6"
         cursor="pointer"
         onClick={onOpen}

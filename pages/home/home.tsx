@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Minty Food - Đồ Ăn & Thức Uống Dinh Dưỡng</title>
+        <title>Minty Food - Đồ Ăn, Thức Uống & Thực Phẩm Dinh Dưỡng</title>
       </Head>
 
       <HomeIntro />

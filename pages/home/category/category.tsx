@@ -28,23 +28,41 @@ const HomeCategory: React.FC = () => {
   ), [])
 
   return (
-    <Flex w="full" alignItems="center" justifyContent="center" mt={24}>
+    <Flex w="full" alignItems="center" justifyContent="center" mt={20}>
       {CATEGORY_DATA.map(item => {
         const { title, description, route, bgImg } = item
         return (
-          <Link href={route} key={route}>
-            <a>
-              <Box mx={20}>
-                <Box w={52} h={52} borderRadius="full" overflow="hidden" bgColor="#FFF" border="2px solid #38A169">
+          <Box mx={20} key={route}>
+            <Link href={route}>
+              <a>
+                <Flex direction="column" mx="auto" alignItems="center" w={{ xs: '140px', '2xl': 52 }} h={{ xs: '140px', '2xl': 52 }} borderRadius="full" bgColor="#FFF"
+                  border="2px solid #38A169"
+                  transitionDuration="300ms"
+                  _hover={{
+                    borderColor: 'primary.3',
+                    transform: 'scale(1.05)'
+                  }}
+                >
                   <ImageX src={bgImg} w="full" h="full" />
-                </Box>
-                <Flex direction="column" alignItems="center" p={4}>
-                  <Text textTransform="uppercase">{title}</Text>
-                  <Text color="#828282" fontStyle="italic">{description}</Text>
                 </Flex>
-              </Box>
-            </a>
-          </Link>
+              </a>
+            </Link>
+
+            <Flex direction="column" alignItems="center" p={4} mt={0.5}>
+              <Link href={route}>
+                <a>
+                  <Text textTransform="uppercase" fontSize={{ xs: 18, '2xl': 20 }} fontWeight={600}
+                    color="primary.2"
+                    transitionDuration="300ms"
+                    _hover={{
+                      color: 'primary.3'
+                    }}
+                  >{title}</Text>
+                </a>
+              </Link>
+              <Text color="#828282" fontStyle="italic" fontSize={{ xs: 14, '2xl': 16 }} mt={0.5}>{description}</Text>
+            </Flex>
+          </Box>
         )
       })}
     </Flex >

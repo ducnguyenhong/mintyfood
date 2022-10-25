@@ -46,7 +46,7 @@ const NewsList: React.FC = () => {
         {NEWS_DATA.map(item => {
           const { id, title, thumbnail, createdAt, description } = item
           return (
-            <Flex key={id} mb={10} boxShadow="base" borderRadius={3} overflow="hidden">
+            <Flex key={id} mb={10} boxShadow="base" borderRadius={3} overflow="hidden" bgColor="#FFF">
               <Link href={`${id}`}>
                 <a>
                   <AspectRatio ratio={4 / 3} w={40}>

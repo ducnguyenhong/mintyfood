@@ -15,7 +15,7 @@ const Header: React.FC = () => {
             <a>
               <Flex alignItems="center">
                 <ImageX src='/images/minty-food-logo.png' alt="logo" boxSize={12} />
-                <Heading as="h3" fontSize={20} color="#e3594a" ml={4} >Minty <Text as="span" fontSize={20} fontWeight={400} color="#38A169">Food</Text></Heading>
+                <Heading as="h3" fontSize={20} color="#e3594a" ml={4} >Minty <Text as="span" fontSize={20} fontWeight={400} color="primary.1">Food</Text></Heading>
               </Flex>
             </a>
           </Link>

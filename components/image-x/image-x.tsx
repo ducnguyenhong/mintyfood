@@ -5,14 +5,14 @@ import { memo } from 'react'
 type ImageXProps = Omit<BoxProps, 'as'> & ImageProps
 
 const ImageX: React.FC<ImageXProps> = (props) => {
-  const { src, alt = "image", ...rest } = props
+  const { src, alt = "image", objectFit = "cover", ...rest } = props
   return (
     <Box
       position="relative"
       {...rest}
     >
       <NextImage
-        objectFit="cover"
+        objectFit={objectFit}
         layout="fill"
         src={src}
         alt={alt}
