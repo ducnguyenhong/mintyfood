@@ -7,7 +7,7 @@ const BreakpointConfig = {
     md: '768px', // tablet
     lg: '992px',
     xl: '1280px', // desktop
-    '2xl': '1536px'
+    '2xl': '1600px'
   }
 };
 
