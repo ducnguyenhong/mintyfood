@@ -25,10 +25,11 @@ const ProductItemShow: React.FC<ProductItemProps> = ({ item }) => {
         py={4}
         mx={6}
         mb={4}
-        borderRadius={10}
+        borderRadius={15}
         border="1px solid #e6e6e6"
         cursor="pointer"
         onClick={onOpen}
+        boxShadow="base"
         transitionDuration='300ms'
         _hover={{
           boxShadow: 'lg',

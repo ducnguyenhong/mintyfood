@@ -16,3 +16,12 @@
   background-color: #babac0;
   box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
+
+body {
+  /* background: rgb(216,252,233)!important;
+  background: linear-gradient(90deg, rgba(216,252,233,1) 0%, rgba(255,255,255,1) 50%, rgba(216,252,233,1) 100%)!important; */
+
+  background: rgb(240,255,247)!important;
+background: linear-gradient(90deg, rgba(240,255,247,1) 0%, rgba(255,255,255,1) 50%, rgba(240,255,247,1) 100%)!important;
+}
+

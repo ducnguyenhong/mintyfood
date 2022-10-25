@@ -8,7 +8,7 @@ const HomeIntro: React.FC = () => {
   return (
     <Flex justifyContent="space-between" alignItems="center" gap={28}>
       <Flex flex={1 / 2} direction="column" pl={40}>
-        <Heading as="h1" color="#484848" fontWeight={800} fontSize={45}>
+        <Heading as="h1" color="#2F855A" fontWeight={800} fontSize={45}>
           Your Favorite Food<br />Delivered Hot &<br />Fresh
         </Heading>
         <Heading as="h4" color="#5A5A5A" fontSize={16} textAlign="justify" mt={8} fontWeight={500}>
@@ -22,7 +22,7 @@ const HomeIntro: React.FC = () => {
       </Flex>
 
       <Flex flex={1 / 2}>
-        <ImageX src="/images/img-intro.png" w="800px" h='550px' objectFit="cover" />
+        <ImageX src="/images/img-intro.png" w="full" h='550px' objectFit="cover" />
       </Flex>
     </Flex>
   );
