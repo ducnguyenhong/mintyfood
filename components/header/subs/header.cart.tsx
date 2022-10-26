@@ -2,9 +2,12 @@ import { Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, Dra
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { memo } from "react"
+import { useRecoilValue } from 'recoil'
+import { activeNavBarAtom } from "./header.recoil"
 
 const HeaderCart: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const activeNavBar = useRecoilValue(activeNavBarAtom)
 
   return (
     <Flex>
