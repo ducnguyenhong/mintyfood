@@ -13,6 +13,7 @@ import '../styles/globals.css'
 config.autoAddCss = false
 
 function MyApp({ Component, pageProps }: AppProps) {
+
   return (
     <RecoilRoot>
       <ChakraProvider theme={chakraTheme}>
