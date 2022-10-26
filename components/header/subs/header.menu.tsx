@@ -38,7 +38,7 @@ const HeaderMenu: React.FC = () => {
                 <Text color={textColor} _groupHover={{ color: activeTextColor }} transitionDuration="200ms" mt="-1px">
                   <FontAwesomeIcon icon={icon} size="1x" />
                 </Text>
-                <Text ml={1.5} transitionDuration="200ms" fontSize={16} color={textColor} _groupHover={{ color: activeTextColor }}>{title}</Text>
+                <Text ml={1.5} transitionDuration="200ms" fontWeight={500} fontSize={16} color={textColor} _groupHover={{ color: activeTextColor }}>{title}</Text>
               </Flex>
             </a>
           </Link>)

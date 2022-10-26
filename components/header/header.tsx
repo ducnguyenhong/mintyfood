@@ -19,7 +19,7 @@ const Header: React.FC = () => {
 
 
   return (
-    <Flex transitionDuration="500ms" bgColor={activeNavBar ? '#36af5c' : '#FFF'} boxShadow="sm" borderBottomWidth={1} h="65px" position="fixed" top={0} left={0} w="full" alignItems="center" px={32} justifyContent="space-between" zIndex={500}>
+    <Flex transitionDuration="500ms" bgColor={activeNavBar ? '#36af5c' : '#FFF'} boxShadow="sm" borderBottomWidth={1} h="68px" position="fixed" top={0} left={0} w="full" alignItems="center" px={32} justifyContent="space-between" zIndex={500}>
       <Flex alignItems="center">
         <Flex>
           <Link href="/">

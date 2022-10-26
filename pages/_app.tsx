@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ChakraProvider theme={chakraTheme}>
         <Box>
           <Header />
-          <Box mt="65px">
+          <Box mt="68px">
             <Component {...pageProps} />
           </Box>
           <Footer />

@@ -15,19 +15,22 @@ const HeaderCart: React.FC = () => {
         w={10}
         h={10}
         borderRadius="full"
-        bgColor='primary.1'
+        bgColor={activeNavBar ? '#FFF' : 'navBar.1'}
         alignItems="center"
         justifyContent="center"
+        transitionDuration="300ms"
         cursor="pointer"
         position="relative"
         onClick={onOpen}
       >
-        <FontAwesomeIcon icon={faCartShopping} color="#FFF" />
+        <Text as="span" color={activeNavBar ? '#38A169' : '#FFF'} transitionDuration="300ms">
+          <FontAwesomeIcon icon={faCartShopping} />
+        </Text>
         <Flex
           w={5}
           h={5}
           borderRadius="full"
-          bgColor='red'
+          bgColor='#fa3c3c'
           alignItems="center"
           justifyContent="center"
           position="absolute"
