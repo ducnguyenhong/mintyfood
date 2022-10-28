@@ -1,11 +1,11 @@
-import { Box, Flex, Text } from "@chakra-ui/react"
-import ImageX from "components/image-x"
-import Link from "next/link"
-import { memo, useMemo } from "react"
+import { Box, Flex, Text } from '@chakra-ui/react';
+import ImageX from 'components/image-x';
+import Link from 'next/link';
+import { memo, useMemo } from 'react';
 
 const HomeCategory: React.FC = () => {
-  const CATEGORY_DATA = useMemo(() => (
-    [
+  const CATEGORY_DATA = useMemo(
+    () => [
       {
         title: 'Đồ ăn',
         description: 'Phong phú & đa dạng',
@@ -24,18 +24,26 @@ const HomeCategory: React.FC = () => {
         route: '/do-an3',
         bgImg: '/images/category-3.png'
       }
-    ]
-  ), [])
+    ],
+    []
+  );
 
   return (
     <Flex w="full" alignItems="center" justifyContent="center" mt={20}>
-      {CATEGORY_DATA.map(item => {
-        const { title, description, route, bgImg } = item
+      {CATEGORY_DATA.map((item) => {
+        const { title, description, route, bgImg } = item;
         return (
           <Box mx={20} key={route}>
             <Link href={route}>
               <a>
-                <Flex direction="column" mx="auto" alignItems="center" w={{ xs: '140px', '2xl': 52 }} h={{ xs: '140px', '2xl': 52 }} borderRadius="full" bgColor="#FFF"
+                <Flex
+                  direction="column"
+                  mx="auto"
+                  alignItems="center"
+                  w={{ xs: '140px', '2xl': 52 }}
+                  h={{ xs: '140px', '2xl': 52 }}
+                  borderRadius="full"
+                  bgColor="#FFF"
                   border="2px solid #38A169"
                   transitionDuration="300ms"
                   _hover={{
@@ -51,22 +59,29 @@ const HomeCategory: React.FC = () => {
             <Flex direction="column" alignItems="center" p={4} mt={0.5}>
               <Link href={route}>
                 <a>
-                  <Text textTransform="uppercase" fontSize={{ xs: 18, '2xl': 20 }} fontWeight={600}
+                  <Text
+                    textTransform="uppercase"
+                    fontSize={{ xs: 18, '2xl': 20 }}
+                    fontWeight={600}
                     color="primary.2"
                     transitionDuration="300ms"
                     _hover={{
                       color: 'primary.3'
                     }}
-                  >{title}</Text>
+                  >
+                    {title}
+                  </Text>
                 </a>
               </Link>
-              <Text color="#828282" fontStyle="italic" fontSize={{ xs: 14, '2xl': 16 }} mt={0.5}>{description}</Text>
+              <Text color="#828282" fontStyle="italic" fontSize={{ xs: 14, '2xl': 16 }} mt={0.5}>
+                {description}
+              </Text>
             </Flex>
           </Box>
-        )
+        );
       })}
-    </Flex >
-  )
-}
+    </Flex>
+  );
+};
 
-export default memo(HomeCategory)
+export default memo(HomeCategory);

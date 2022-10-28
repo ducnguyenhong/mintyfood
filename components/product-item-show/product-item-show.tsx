@@ -1,19 +1,32 @@
-import { AspectRatio, Badge, Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Text, useDisclosure } from "@chakra-ui/react";
-import { faCartPlus, faEye } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ImageX from "components/image-x";
-import ProductItemPreview from "components/product-item-preview";
-import { ProductItem } from "models/product-item";
-import { memo } from "react";
-import { formatPrice } from "utils/helper";
+import {
+  AspectRatio,
+  Badge,
+  Divider,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  Flex,
+  Text,
+  useDisclosure
+} from '@chakra-ui/react';
+import { faCartPlus, faEye } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ImageX from 'components/image-x';
+import ProductItemPreview from 'components/product-item-preview';
+import { ProductItem } from 'models/product-item';
+import { memo } from 'react';
+import { formatPrice } from 'utils/helper';
 
 interface ProductItemProps {
-  item: ProductItem
+  item: ProductItem;
 }
 
 const ProductItemShow: React.FC<ProductItemProps> = ({ item }) => {
-  const { id, image, name, curentPrice, initPrice, category } = item
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { id, image, name, curentPrice, initPrice, category } = item;
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
@@ -31,24 +44,32 @@ const ProductItemShow: React.FC<ProductItemProps> = ({ item }) => {
         cursor="pointer"
         onClick={onOpen}
         boxShadow="base"
-        transitionDuration='300ms'
+        transitionDuration="300ms"
         _hover={{
-          boxShadow: 'lg',
+          boxShadow: 'lg'
         }}
       >
         <Flex justifyContent="space-between" w="full">
           <Flex w={8} h={8} bgColor="purple" borderRadius="full" alignItems="center" justifyContent="center">
-            <Text fontSize={10} color="#FFF">-5%</Text>
+            <Text fontSize={10} color="#FFF">
+              -5%
+            </Text>
           </Flex>
           <Badge>{category}</Badge>
         </Flex>
         <AspectRatio w="full" ratio={5 / 4}>
           <ImageX src={image} h={4} />
         </AspectRatio>
-        <Text color="#66BC42" fontWeight={700} fontSize={16}>{name}</Text>
+        <Text color="#66BC42" fontWeight={700} fontSize={16}>
+          {name}
+        </Text>
         <Flex mt={1} gap={2} alignItems="center">
-          <Text color="#828282" textDecoration="line-through" fontSize={13}>{formatPrice(initPrice)}</Text>
-          <Text color="red" fontWeight={600} fontSize={16}>{formatPrice(curentPrice)}</Text>
+          <Text color="#828282" textDecoration="line-through" fontSize={13}>
+            {formatPrice(initPrice)}
+          </Text>
+          <Text color="red" fontWeight={600} fontSize={16}>
+            {formatPrice(curentPrice)}
+          </Text>
         </Flex>
         <Flex mt={2} gap={8} display="none">
           <button>
@@ -69,7 +90,9 @@ const ProductItemShow: React.FC<ProductItemProps> = ({ item }) => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>
-            <Text color="#38A169" fontWeight={700} fontSize={19}>{name}</Text>
+            <Text color="#38A169" fontWeight={700} fontSize={19}>
+              {name}
+            </Text>
             <Divider mt={4} />
           </DrawerHeader>
           <DrawerBody>
@@ -78,7 +101,7 @@ const ProductItemShow: React.FC<ProductItemProps> = ({ item }) => {
         </DrawerContent>
       </Drawer>
     </>
-  )
-}
+  );
+};
 
-export default memo(ProductItemShow)
+export default memo(ProductItemShow);

@@ -1,9 +1,9 @@
-import { Flex } from "@chakra-ui/react"
-import { memo } from "react"
-import FooterAboutUs from "./about-us"
-import FooterContact from "./contact"
-import FooterInfo from "./info"
-import FooterNews from "./news"
+import { Flex } from '@chakra-ui/react';
+import { memo } from 'react';
+import FooterAboutUs from './about-us';
+import FooterContact from './contact';
+import FooterInfo from './info';
+import FooterNews from './news';
 
 const Footer: React.FC = () => {
   return (
@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
         <FooterAboutUs />
       </Flex>
     </footer>
-  )
-}
+  );
+};
 
-export default memo(Footer)
+export default memo(Footer);

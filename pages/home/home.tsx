@@ -1,9 +1,9 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import HomeCategory from './category'
-import HomeIntro from './introduction'
-import HomeNews from './news'
-import ProductList from './product-list'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import HomeCategory from './category';
+import HomeIntro from './introduction';
+import HomeNews from './news';
+import ProductList from './product-list';
 
 const Home: NextPage = () => {
   return (
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
 
       <HomeNews />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
