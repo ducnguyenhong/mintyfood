@@ -1,12 +1,12 @@
-import { Box, Heading } from "@chakra-ui/react"
-import { memo } from "react"
+import { Box, Heading } from '@chakra-ui/react';
+import { memo } from 'react';
 
 interface SectionProps {
-  title: string
+  title: string;
 }
 
 const Section: React.FC<SectionProps> = (props) => {
-  const { title } = props
+  const { title } = props;
 
   return (
     <Box position="relative" pt={4} h={8}>
@@ -29,7 +29,7 @@ const Section: React.FC<SectionProps> = (props) => {
       </Heading>
       <Box w="full" h="1px" bgColor="#d9d9d9" />
     </Box>
-  )
-}
+  );
+};
 
-export default memo(Section)
+export default memo(Section);

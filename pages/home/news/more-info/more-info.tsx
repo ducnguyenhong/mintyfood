@@ -1,6 +1,6 @@
-import { Box, Button, Flex, FormControl, Input } from "@chakra-ui/react"
-import Section from "components/section"
-import { memo } from "react"
+import { Box, Button, Flex, FormControl, Input } from '@chakra-ui/react';
+import Section from 'components/section';
+import { memo } from 'react';
 
 const MoreInfo: React.FC = () => {
   return (
@@ -19,10 +19,18 @@ const MoreInfo: React.FC = () => {
       </Box>
 
       <Box mt={16}>
-        <iframe width="100%" height="260" src="https://www.youtube.com/embed/vRqxmcfaeeY" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <iframe
+          width="100%"
+          height="260"
+          src="https://www.youtube.com/embed/vRqxmcfaeeY"
+          title="YouTube video player"
+          frameBorder={0}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
       </Box>
-    </Flex >
-  )
-}
+    </Flex>
+  );
+};
 
-export default memo(MoreInfo)
+export default memo(MoreInfo);

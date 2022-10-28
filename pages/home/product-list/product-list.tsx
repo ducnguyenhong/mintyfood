@@ -1,8 +1,8 @@
-import { Box } from "@chakra-ui/react"
-import { memo } from "react"
-import ProductList1 from "./product-1"
-import ProductList2 from "./product-2"
-import ProductListTop from "./product-top"
+import { Box } from '@chakra-ui/react';
+import { memo } from 'react';
+import ProductList1 from './product-1';
+import ProductList2 from './product-2';
+import ProductListTop from './product-top';
 
 const ProductList: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const ProductList: React.FC = () => {
       <ProductList1 />
       <ProductList2 />
     </Box>
-  )
-}
+  );
+};
 
-export default memo(ProductList)
+export default memo(ProductList);
