@@ -1,4 +1,6 @@
 import {
+  Box,
+  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -6,18 +8,78 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Flex,
+  Table,
+  TableContainer,
+  Tbody,
   Text,
+  Th,
+  Thead,
+  Tr,
   useDisclosure
 } from '@chakra-ui/react';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { memo } from 'react';
+import ProductItemCart from 'components/product-item-cart';
+import { ProductItem } from 'models/product-item';
+import Link from 'next/link';
+import { memo, useMemo } from 'react';
 import { useRecoilValue } from 'recoil';
 import { activeNavBarAtom } from './header.recoil';
 
 const HeaderCart: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const activeNavBar = useRecoilValue(activeNavBarAtom);
+
+  const PRODUCT_DATA: ProductItem[] = useMemo(
+    () => [
+      {
+        id: 1,
+        image: '/images/sp-1.png',
+        name: 'Sữa chua nhà làm',
+        curentPrice: 5_000,
+        initPrice: 6_000,
+        category: 'DRINK',
+        quantity: 10
+      },
+      {
+        id: 2,
+        image: '/images/sp-2.png',
+        name: 'Bánh bao',
+        curentPrice: 20_000,
+        initPrice: 25_000,
+        category: 'FOOD',
+        quantity: 5
+      },
+      {
+        id: 3,
+        image: '/images/sp-3.png',
+        name: 'Sinh tố Dưa Hấu',
+        curentPrice: 15_000,
+        initPrice: 18_000,
+        category: 'DRINK',
+        quantity: 5
+      },
+      {
+        id: 4,
+        image: '/images/sp-4.png',
+        name: 'Sinh tố Cam',
+        curentPrice: 15_000,
+        initPrice: 18_000,
+        category: 'DRINK',
+        quantity: 5
+      },
+      {
+        id: 5,
+        image: '/images/sp-5.png',
+        name: 'Sinh tố Dâu Tây',
+        curentPrice: 20_000,
+        initPrice: 22_000,
+        category: 'DRINK',
+        quantity: 10
+      }
+    ],
+    []
+  );
 
   return (
     <Flex>
@@ -53,18 +115,39 @@ const HeaderCart: React.FC = () => {
         </Flex>
       </Flex>
 
-      <Drawer preserveScrollBarGap onClose={onClose} isOpen={isOpen} size="lg" autoFocus={false}>
+      <Drawer preserveScrollBarGap onClose={onClose} isOpen={isOpen} size="xl" autoFocus={false}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Giỏ hàng của bạn</DrawerHeader>
           <DrawerBody>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Consequat nisl vel pretium lectus quam id. Semper quis lectus nulla at volutpat diam
-              ut venenatis. Dolor morbi non arcu risus quis varius quam quisque. Massa ultricies mi quis hendrerit dolor
-              magna eget est lorem. Erat imperdiet sed euismod nisi porta. Lectus vestibulum mattis ullamcorper velit.
-            </p>
+            <Box>
+              <TableContainer>
+                <Table variant="simple">
+                  <Thead>
+                    <Tr>
+                      <Th>Sản phẩm</Th>
+                      <Th>Đơn giá</Th>
+                      <Th>Số lượng</Th>
+                      <Th>Hành động</Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    {PRODUCT_DATA.map((item) => (
+                      <ProductItemCart key={item.id} item={item} />
+                    ))}
+                  </Tbody>
+                </Table>
+              </TableContainer>
+
+              <Link href="/gio-hang">
+                <a>
+                  <Button onClick={onClose} colorScheme="green">
+                    Xem chi tiết & Thanh toán
+                  </Button>
+                </a>
+              </Link>
+            </Box>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
