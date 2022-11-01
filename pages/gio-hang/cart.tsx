@@ -66,9 +66,9 @@ const CartPage: NextPage = () => {
       <Head>
         <title>Giỏ hàng | Minty Food</title>
       </Head>
-      <Box w="full" h="full" bgColor="#f2f2f2">
-        <Box w="70%" mx="auto">
-          <Box bgColor="#FFF" mt={36} boxShadow="base">
+      <Box w="full" h="full" bgColor="#f5f5f5" pt={14} minH="100vh">
+        <Box w="60%" mx="auto">
+          <Box bgColor="#FFF" boxShadow="base">
             <TableContainer>
               <Table variant="simple">
                 <Thead>

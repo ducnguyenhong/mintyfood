@@ -24,7 +24,7 @@ const Header: React.FC = () => {
       boxShadow="sm"
       borderBottomWidth={1}
       h="68px"
-      position="fixed"
+      position="sticky"
       top={0}
       left={0}
       w="full"

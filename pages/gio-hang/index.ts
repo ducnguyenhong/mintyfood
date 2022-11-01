@@ -1,3 +1,3 @@
-import NextPage from './gio-hang';
+import Cart from './cart';
 
-export default NextPage;
+export default Cart;
