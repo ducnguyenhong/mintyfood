@@ -3,6 +3,7 @@ import ImageX from 'components/image-x';
 import Link from 'next/link';
 import { memo, useCallback, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
+import HeaderAuth from './subs/header.auth';
 import HeaderCart from './subs/header.cart';
 import HeaderMenu from './subs/header.menu';
 import { activeNavBarAtom } from './subs/header.recoil';
@@ -20,11 +21,11 @@ const Header: React.FC = () => {
   return (
     <Flex
       transitionDuration="500ms"
-      bgColor={activeNavBar ? '#36af5c' : '#FFF'}
+      bgColor={activeNavBar ? 'primary.1' : '#FFF'}
       boxShadow="sm"
       borderBottomWidth={1}
       h="68px"
-      position="fixed"
+      position="sticky"
       top={0}
       left={0}
       w="full"
@@ -55,6 +56,7 @@ const Header: React.FC = () => {
       <Flex alignItems="center">
         <HeaderMenu />
         <HeaderCart />
+        <HeaderAuth />
       </Flex>
     </Flex>
   );
