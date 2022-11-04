@@ -3,6 +3,7 @@ import ImageX from 'components/image-x';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { signInWithFacebook, signInWithGoogle } from 'services/firebase';
 
 interface FormData {
   username: string;
@@ -50,6 +51,12 @@ const Login: NextPage = () => {
                   Đăng nhập
                 </Button>
               </form>
+              <Button type="button" onClick={signInWithGoogle}>
+                signInWithGoogle
+              </Button>
+              <Button type="button" onClick={signInWithFacebook}>
+                signInWithFacebook
+              </Button>
             </Box>
           </Flex>
         </Flex>

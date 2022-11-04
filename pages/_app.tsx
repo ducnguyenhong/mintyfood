@@ -8,6 +8,7 @@ import { chakraTheme } from 'configs/chakra-theme';
 import type { AppProps } from 'next/app';
 import 'react-multi-carousel/lib/styles.css';
 import { RecoilRoot } from 'recoil';
+import '../services/firebase';
 import '../styles/globals.css';
 
 config.autoAddCss = false;
