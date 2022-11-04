@@ -11,7 +11,7 @@ const HeaderMenu: React.FC = () => {
   const activeNavBar = useRecoilValue(activeNavBarAtom);
   const router = useRouter();
 
-  const navColor = useMemo(() => (activeNavBar ? '#FFF' : 'navBar.1'), [activeNavBar]);
+  const navColor = useMemo(() => (activeNavBar ? '#FFF' : 'primary.1'), [activeNavBar]);
   const textColor = useMemo(() => (activeNavBar ? '#FFF' : 'primary.1'), [activeNavBar]);
   const activeTextColor = useMemo(() => (activeNavBar ? 'primary.1' : '#FFF'), [activeNavBar]);
 

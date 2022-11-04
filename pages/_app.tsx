@@ -1,6 +1,7 @@
 import { Box, ChakraProvider } from '@chakra-ui/react';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Footer from 'components/footer';
 import Header from 'components/header';
 import { chakraTheme } from 'configs/chakra-theme';
@@ -11,19 +12,21 @@ import '../styles/globals.css';
 
 config.autoAddCss = false;
 
+const queryClient = new QueryClient();
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <RecoilRoot>
-      <ChakraProvider theme={chakraTheme}>
-        <Box>
-          <Header />
+    <QueryClientProvider client={queryClient}>
+      <RecoilRoot>
+        <ChakraProvider theme={chakraTheme}>
           <Box>
+            <Header />
             <Component {...pageProps} />
+            <Footer />
           </Box>
-          <Footer />
-        </Box>
-      </ChakraProvider>
-    </RecoilRoot>
+        </ChakraProvider>
+      </RecoilRoot>
+    </QueryClientProvider>
   );
 }
 
