@@ -1,24 +1,21 @@
-import { collection, getDocs } from 'firebase/firestore';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useEffect } from 'react';
-import { db } from 'services/firebase';
 import HomeCategory from './category';
 import HomeIntro from './introduction';
 import HomeNews from './news';
 import ProductList from './product-list';
 
 const Home: NextPage = () => {
-  useEffect(() => {
-    const a = async () => {
-      const querySnapshot = await getDocs(collection(db, 'users'));
-      querySnapshot.forEach((doc) => {
-        console.log(doc.data());
-      });
-    };
+  // useEffect(() => {
+  //   const a = async () => {
+  //     const querySnapshot = await getDocs(collection(db, 'users'));
+  //     querySnapshot.forEach((doc) => {
+  //       console.log(doc.data());
+  //     });
+  //   };
 
-    a();
-  }, []);
+  //   a();
+  // }, []);
 
   return (
     <div>
