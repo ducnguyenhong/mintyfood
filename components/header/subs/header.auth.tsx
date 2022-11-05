@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Divider,
+  Flex,
   Popover,
   PopoverArrow,
   PopoverBody,
@@ -10,7 +11,7 @@ import {
   Text,
   useDisclosure
 } from '@chakra-ui/react';
-import { faSignIn, faUserAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faSignIn, faUserAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { memo } from 'react';
@@ -24,33 +25,48 @@ const HeaderAuth: React.FC = () => {
   return (
     <Popover isOpen={isOpen} onClose={onClose}>
       <PopoverTrigger>
-        <Button
-          w={10}
-          h={10}
-          borderRadius="full"
-          bgColor={activeNavBar ? 'primary.1' : '#FFF'}
-          border={activeNavBar ? '1.5px solid #FFF' : '1.5px solid #38A169'}
-          ml={5}
-          data-group
-          transitionDuration="300ms"
-          _hover={{
-            bgColor: 'primary.1'
-          }}
-          _active={{
-            bgColor: 'primary.1'
-          }}
-          onClick={onToggle}
-        >
-          <Text
-            color={activeNavBar ? '#FFF' : '#38A169'}
+        <Flex position="relative">
+          <Button
+            w={10}
+            h={10}
+            borderRadius="full"
+            bgColor={activeNavBar ? 'primary.1' : '#FFF'}
+            border={activeNavBar ? '1.5px solid #FFF' : '1.5px solid #38A169'}
+            ml={5}
+            data-group
             transitionDuration="300ms"
-            _groupHover={{
-              color: '#FFF'
+            _hover={{
+              bgColor: 'primary.1'
             }}
+            _active={{
+              bgColor: 'primary.1'
+            }}
+            onClick={onToggle}
           >
-            <FontAwesomeIcon icon={faUserAlt} />
-          </Text>
-        </Button>
+            <Text
+              color={activeNavBar ? '#FFF' : '#38A169'}
+              transitionDuration="300ms"
+              _groupHover={{
+                color: '#FFF'
+              }}
+            >
+              <FontAwesomeIcon icon={faUserAlt} />
+            </Text>
+          </Button>
+          <Flex
+            w={5}
+            h={5}
+            borderRadius="full"
+            alignItems="center"
+            bgColor="#0e70f1"
+            justifyContent="center"
+            position="absolute"
+            top={-1.5}
+            right={-1.5}
+          >
+            <FontAwesomeIcon icon={faCheck} color="#FFF" size="xs" />
+          </Flex>
+        </Flex>
       </PopoverTrigger>
       <PopoverContent w={56}>
         <PopoverArrow />

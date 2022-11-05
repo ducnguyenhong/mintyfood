@@ -2,6 +2,7 @@ import { Box, ChakraProvider } from '@chakra-ui/react';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import FacebookChat from 'components/facebook-chat';
 import Footer from 'components/footer';
 import Header from 'components/header';
 import { chakraTheme } from 'configs/chakra-theme';
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <Header />
             <Component {...pageProps} />
             <Footer />
+            <FacebookChat />
           </Box>
         </ChakraProvider>
       </RecoilRoot>
