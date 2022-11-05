@@ -11,6 +11,7 @@ interface ResponseData {
       refreshToken: string;
     };
     userInfo: UserInfo;
+    message: string;
   } | null;
   error?: {
     message: string;
@@ -43,7 +44,8 @@ const postLogin = (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
                 createdAt: get(user, 'metadata.createdAt') as string,
                 status: get(user, 'status') as string,
                 avatar: get(user, 'photoURL') as string
-              }
+              },
+              message: 'Đăng nhập thành công'
             }
           });
         }

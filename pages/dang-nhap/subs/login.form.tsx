@@ -16,7 +16,7 @@ const LoginForm: React.FC = () => {
     }
   });
 
-  const { mutate: loginMutate } = useMutationLogin();
+  const { mutate: loginMutate, isLoading } = useMutationLogin();
 
   const onSubmit: SubmitHandler<LoginFormData> = useCallback(
     (data) => {
@@ -34,7 +34,7 @@ const LoginForm: React.FC = () => {
       <Flex justifyContent="center" alignItems="center" mb={10}>
         <ImageX src="/images/minty-food-logo.png" boxSize={16} />
         <Heading as="h3" fontSize={24} color="text.1" ml={2}>
-          Đăng nhập vào MintyFood
+          Đăng nhập MintyFood
         </Heading>
       </Flex>
 
@@ -80,7 +80,17 @@ const LoginForm: React.FC = () => {
         {/* errors will return when field validation fails  */}
         {/* {errors.exampleRequired && <span>This field is required</span>} */}
 
-        <Button colorScheme="green" type="submit" w="full" h={12} fontSize={16} mt={8} mb={16}>
+        <Button
+          colorScheme="green"
+          type="submit"
+          w="full"
+          h={12}
+          fontSize={16}
+          mt={8}
+          mb={16}
+          isLoading={isLoading}
+          loadingText="Đang đăng nhập"
+        >
           Đăng nhập
         </Button>
       </form>

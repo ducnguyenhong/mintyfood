@@ -3,7 +3,7 @@ import ImageX from 'components/image-x';
 import Link from 'next/link';
 import { memo, useCallback, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import HeaderAuth from './subs/header.auth';
+import HeaderAuth from './subs/header-auth';
 import HeaderCart from './subs/header.cart';
 import HeaderMenu from './subs/header.menu';
 import { activeNavBarAtom } from './subs/header.recoil';
