@@ -43,8 +43,6 @@ const signInWithFacebook = () => {
       // The signed-in user info.
       const user = result.user;
 
-      console.log('ducnh user FB', user);
-
       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
       const credential = FacebookAuthProvider.credentialFromResult(result);
       const accessToken = credential?.accessToken;
@@ -68,7 +66,6 @@ const signInWithGoogle = async () => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
-    console.log('ducnh user GG', user);
 
     const q = query(collection(db, 'users'), where('uid', '==', user.uid));
     const docs = await getDocs(q);
@@ -88,10 +85,10 @@ const signInWithGoogle = async () => {
 
 const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-  } catch (err: any) {
+    const response = await signInWithEmailAndPassword(auth, email, password);
+    return response;
+  } catch (err) {
     console.error(err);
-    alert(err.message);
   }
 };
 
@@ -102,7 +99,7 @@ const registerWithEmailAndPassword = async (name: string, email: string, passwor
     await addDoc(collection(db, 'users'), {
       uid: user.uid,
       name,
-      authProvider: 'local',
+      authProvider: 'default',
       email
     });
   } catch (err: any) {
