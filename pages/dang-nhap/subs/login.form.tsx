@@ -1,11 +1,11 @@
 import { Box, Button, Flex, Heading, Input, InputGroup, InputLeftElement, InputRightElement } from '@chakra-ui/react';
 import { faEnvelope, faEye, faEyeSlash, faLock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useMutationLogin } from 'actions/mutate/login';
 import ImageX from 'components/image-x';
+import { LoginFormData } from 'models/login';
 import { memo, useCallback, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useMutationLogin } from './login.mutate';
-import { LoginFormData } from './login.type';
 
 const LoginForm: React.FC = () => {
   const [showPass, setShowPass] = useState<boolean>(false);

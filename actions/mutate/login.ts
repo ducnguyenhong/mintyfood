@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
+import { LoginFormData } from 'models/login';
 import API from 'utils/api';
-import { LoginFormData } from './login.type';
 
 export const useMutationLogin = () =>
   useMutation((params: LoginFormData) =>
