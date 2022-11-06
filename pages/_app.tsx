@@ -19,9 +19,11 @@ config.autoAddCss = false;
 
 const queryClient = new QueryClient();
 
+const CMS_ROUTES = ['/bang-dieu-khien', '/viet-bai-moi'];
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
-  const isCMS = useMemo(() => router.pathname === '/bang-dieu-khien', [router.pathname]);
+  const isCMS = useMemo(() => CMS_ROUTES.includes(router.pathname), [router.pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>
