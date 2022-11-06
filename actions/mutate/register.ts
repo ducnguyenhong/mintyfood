@@ -8,12 +8,14 @@ export const useMutationRegister = () => {
   const { mutate: loginMutate } = useMutationLogin();
 
   return useMutation(
-    (params: RegisterFormData) =>
-      API.request({
+    (params: RegisterFormData) => {
+      const { email, password, fullName } = params;
+      return API.request({
         method: 'POST',
-        url: '/api/login',
-        params
-      }),
+        url: '/api/register',
+        params: { email, password, fullName }
+      });
+    },
     {
       onSuccess: (_, values) => {
         const { email, password } = values;

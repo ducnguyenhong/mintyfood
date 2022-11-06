@@ -30,12 +30,7 @@ const RegisterForm: React.FC = () => {
 
   const { mutate: registerMutate } = useMutationRegister();
 
-  const onSubmit: SubmitHandler<RegisterFormData> = useCallback(
-    (data) => {
-      registerMutate(data);
-    },
-    [registerMutate]
-  );
+  const onSubmit: SubmitHandler<RegisterFormData> = useCallback((data) => registerMutate(data), [registerMutate]);
 
   const onChangeShowPass = useCallback(() => {
     setShowPass((prev) => !prev);

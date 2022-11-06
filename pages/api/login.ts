@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import md5 from 'md5';
 import { UserInfo } from 'models/user';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { logInWithEmailAndPassword } from 'services/firebase';
@@ -18,11 +19,11 @@ interface ResponseData {
   };
 }
 
-const postLogin = (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
+const postLogin = async (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
   if (req.method === 'POST') {
     const { email, password } = req.body;
 
-    logInWithEmailAndPassword(email, password)
+    logInWithEmailAndPassword(email, md5(password))
       .then((response) => {
         if (response) {
           const { user } = response;
@@ -43,7 +44,8 @@ const postLogin = (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
                 uid: get(user, 'uid') as string,
                 createdAt: get(user, 'metadata.createdAt') as string,
                 status: get(user, 'status') as string,
-                avatar: get(user, 'photoURL') as string
+                avatar: get(user, 'photoURL') as string,
+                type: get(user, 'type') as string
               },
               message: 'Đăng nhập thành công'
             }

@@ -100,7 +100,10 @@ const registerWithEmailAndPassword = async (fullName: string, email: string, pas
       uid: user.uid,
       fullName,
       authProvider: 'password',
-      email
+      email,
+      type: 'USER',
+      status: 'ACTIVE',
+      password
     };
     await addDoc(collection(db, 'users'), newUser);
     return {
@@ -108,7 +111,6 @@ const registerWithEmailAndPassword = async (fullName: string, email: string, pas
     };
   } catch (err: any) {
     console.error(err);
-    alert(err.message);
   }
 };
 

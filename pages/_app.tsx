@@ -2,11 +2,14 @@ import { Box, ChakraProvider } from '@chakra-ui/react';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import DashboardLayout from 'components/dashboard-layout';
 import FacebookChat from 'components/facebook-chat';
 import Footer from 'components/footer';
 import Header from 'components/header';
 import { chakraTheme } from 'configs/chakra-theme';
 import type { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
+import { useMemo } from 'react';
 import 'react-multi-carousel/lib/styles.css';
 import { RecoilRoot } from 'recoil';
 import '../services/firebase';
@@ -16,21 +19,30 @@ config.autoAddCss = false;
 
 const queryClient = new QueryClient();
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  const router = useRouter();
+  const isCMS = useMemo(() => router.pathname === '/bang-dieu-khien', [router.pathname]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
         <ChakraProvider theme={chakraTheme}>
-          <Box>
-            <Header />
-            <Component {...pageProps} />
-            <Footer />
-            <FacebookChat />
-          </Box>
+          {isCMS ? (
+            <DashboardLayout>
+              <Component {...pageProps} />
+            </DashboardLayout>
+          ) : (
+            <Box>
+              <Header />
+              <Component {...pageProps} />
+              <Footer />
+              <FacebookChat />
+            </Box>
+          )}
         </ChakraProvider>
       </RecoilRoot>
     </QueryClientProvider>
   );
-}
+};
 
 export default MyApp;

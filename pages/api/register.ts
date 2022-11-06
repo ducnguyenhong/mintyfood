@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import md5 from 'md5';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { registerWithEmailAndPassword } from 'services/firebase';
 
@@ -15,8 +16,7 @@ interface ResponseData {
 const postRegister = (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
   if (req.method === 'POST') {
     const { email, password, fullName } = req.body;
-
-    registerWithEmailAndPassword(fullName, email, password)
+    registerWithEmailAndPassword(fullName, email, md5(password))
       .then((response) => {
         if (response) {
           const { data } = response;

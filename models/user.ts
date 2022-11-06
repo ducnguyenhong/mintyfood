@@ -5,5 +5,6 @@ export interface UserInfo {
   status: string;
   createdAt: string;
   email: string;
+  type: string;
   avatar?: string;
 }

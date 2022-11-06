@@ -22,6 +22,7 @@ export const useMutationLogin = () => {
       onSuccess: (response) => {
         const { tokens, userInfo } = response.data;
         const { accessToken, expirationTime } = tokens;
+        const { type } = userInfo;
         showToast({
           status: 'success',
           description: 'Đăng nhập thành công'
@@ -30,7 +31,7 @@ export const useMutationLogin = () => {
         Cookies.set('access-token', accessToken);
         Cookies.set('expiration-time', expirationTime);
 
-        router.push('/');
+        router.push(type === 'ADMIN' ? '/bang-dieu-khien' : '/');
       },
       onError: (e: Error) =>
         showToast({
