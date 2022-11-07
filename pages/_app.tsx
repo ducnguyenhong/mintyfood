@@ -3,6 +3,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import DashboardLayout from 'components/dashboard-layout';
+import { SIDE_BAR_ROUTES } from 'components/dashboard-layout/sidebar/sidebar.data';
 import FacebookChat from 'components/facebook-chat';
 import Footer from 'components/footer';
 import Header from 'components/header';
@@ -19,11 +20,9 @@ config.autoAddCss = false;
 
 const queryClient = new QueryClient();
 
-const CMS_ROUTES = ['/bang-dieu-khien', '/viet-bai-moi'];
-
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
-  const isCMS = useMemo(() => CMS_ROUTES.includes(router.pathname), [router.pathname]);
+  const isCMS = useMemo(() => SIDE_BAR_ROUTES.includes(router.pathname), [router.pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>

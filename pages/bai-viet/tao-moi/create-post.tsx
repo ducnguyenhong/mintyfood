@@ -1,6 +1,7 @@
 import { Box, Input } from '@chakra-ui/react';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { EditorProps } from '@toast-ui/react-editor';
+import DashboardSection from 'components/dashboard-layout/section';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
@@ -20,6 +21,7 @@ const CreatePost: NextPage = () => {
       </Head>
 
       <Box bgColor="#FFF" p={6}>
+        <DashboardSection title="Tạo bài viết mới" />
         <CreatePostControl />
         <Box mt={6}>
           <Input placeholder="Tiêu đề bài viết" py={6} />
