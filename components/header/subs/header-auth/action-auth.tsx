@@ -1,25 +1,21 @@
 import { Box, Divider, Text } from '@chakra-ui/react';
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Cookies from 'js-cookie';
+import { useMutationLogout } from 'actions/mutate/logout';
 import Link from 'next/link';
 import { memo, useCallback } from 'react';
-import { useSetRecoilState } from 'recoil';
-import { userInfoAtom } from 'recoil/user-info';
 
 interface ActionAuthProps {
   onClose: () => void;
 }
 
 const ActionAuth: React.FC<ActionAuthProps> = ({ onClose }) => {
-  const setUserInfo = useSetRecoilState(userInfoAtom);
+  const { mutate: logoutMutate } = useMutationLogout();
 
   const onLogout = useCallback(() => {
     onClose();
-    setUserInfo(undefined);
-    Cookies.remove('access-token');
-    Cookies.remove('expiration-time');
-  }, [onClose, setUserInfo]);
+    logoutMutate();
+  }, [onClose, logoutMutate]);
 
   return (
     <Box>

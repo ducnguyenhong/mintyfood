@@ -5,6 +5,7 @@ import {
   FacebookAuthProvider,
   getAuth,
   GoogleAuthProvider,
+  onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -124,8 +125,32 @@ const sendPasswordReset = async (email: string) => {
   }
 };
 
-const logout = () => {
-  signOut(auth);
+const logoutFirebase = () => signOut(auth);
+
+const getUserInfoFirebase = async () => {
+  try {
+    const b = await onAuthStateChanged(auth, (user) => user);
+    const a = await onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const q = query(collection(db, 'users'), where('uid', '==', user.uid));
+        return getDocs(q).then((docs) => {
+          if (docs.docs.length) {
+            const { password, ...rest } = docs.docs[0].data();
+            console.log('ducnh rest', rest);
+            return rest;
+          }
+        });
+      } else {
+        console.log('ducnh signed out');
+
+        // User is signed out
+        // ...
+      }
+    });
+    console.log('ducnh aaaaa', b);
+  } catch (e) {
+    console.log('ducnh e');
+  }
 };
 
 export {
@@ -136,5 +161,6 @@ export {
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   sendPasswordReset,
-  logout
+  logoutFirebase,
+  getUserInfoFirebase
 };
