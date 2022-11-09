@@ -1,4 +1,4 @@
-export interface CategoryFormData {
+export interface PostCategoryFormData {
   name: string;
   value: string;
 }

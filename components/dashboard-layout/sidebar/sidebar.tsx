@@ -1,4 +1,5 @@
 import { Box, Divider, Flex, Heading, Text } from '@chakra-ui/react';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -14,13 +15,34 @@ const SideBar: React.FC = () => {
         <Heading as="h3" fontWeight={600} fontSize={18} color="#FFF" textAlign="center" textTransform="uppercase">
           Bảng điều khiển
         </Heading>
+
+        <Box p={2} mt={4} borderRadius={3} transitionDuration="300ms" data-group>
+          <Link href="/">
+            <a target="_blank">
+              <Flex gap={3} justifyContent="center">
+                <Text as="span" color="cmsText.1" w={4} transitionDuration="300ms" _groupHover={{ color: 'cmsText.3' }}>
+                  <FontAwesomeIcon icon={faEye} />
+                </Text>
+                <Text
+                  as="span"
+                  color="cmsText.1"
+                  fontWeight={600}
+                  transitionDuration="300ms"
+                  _groupHover={{ color: 'cmsText.3' }}
+                >
+                  Xem trang web
+                </Text>
+              </Flex>
+            </a>
+          </Link>
+        </Box>
       </Box>
       <Divider />
       <Box px={6} mt={4}>
         {SIDE_BAR_DATA.map((item) => {
           const { title: blockTitle, routes } = item;
           return (
-            <Box mt={12} key={blockTitle}>
+            <Box mt={8} key={blockTitle}>
               <Text color="cmsText.2" mb={2} textTransform="uppercase" fontSize={12}>
                 {blockTitle}
               </Text>

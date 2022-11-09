@@ -1,22 +1,33 @@
 import { Box, Button, Flex, FormLabel, Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
 import { faTh } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useMutationCreatePostCategory } from 'actions/mutate/post-category';
 import DashboardSection from 'components/dashboard-layout/section';
-import { CategoryFormData } from 'models/category';
+import { PostCategoryFormData } from 'models/category';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { useCallback } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { slugURL } from 'utils/helper';
 
 const CreateCategory: NextPage = () => {
-  const { register, handleSubmit } = useForm<CategoryFormData>({
+  const { register, handleSubmit, reset } = useForm<PostCategoryFormData>({
     defaultValues: {
       name: '',
       value: ''
     }
   });
 
-  const onSubmit: SubmitHandler<CategoryFormData> = useCallback((data) => {}, []);
+  const { mutate: createMutate } = useMutationCreatePostCategory(reset);
+
+  const onSubmit: SubmitHandler<PostCategoryFormData> = useCallback(
+    (data) => {
+      const { name } = data;
+      const value = slugURL(name).replaceAll('-', '_').toUpperCase();
+      createMutate({ name, value });
+    },
+    [createMutate]
+  );
 
   return (
     <Box>

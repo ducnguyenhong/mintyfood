@@ -157,6 +157,10 @@ const getUserInfoFirebase = async () => {
   }
 };
 
+const createPostCategoryFirebase = async (name: string, value: string) => {
+  await addDoc(collection(db, 'post-category'), { name, value });
+};
+
 export {
   auth,
   db,
@@ -166,5 +170,6 @@ export {
   registerWithEmailAndPassword,
   sendPasswordReset,
   logoutFirebase,
-  getUserInfoFirebase
+  getUserInfoFirebase,
+  createPostCategoryFirebase
 };

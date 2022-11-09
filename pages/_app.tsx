@@ -13,7 +13,8 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { memo, useMemo } from 'react';
 import 'react-multi-carousel/lib/styles.css';
-import { RecoilRoot } from 'recoil';
+import { RecoilRoot, useSetRecoilState } from 'recoil';
+import { userInfoAtom } from 'recoil/user-info';
 import { checkIsLogin } from 'utils/helper';
 import '../services/firebase';
 import '../styles/globals.css';
@@ -25,12 +26,15 @@ const queryClient = new QueryClient();
 const MainLayout: React.FC<any> = memo(({ children }) => {
   const isLogged = checkIsLogin();
   const { data: userInfo, isLoading } = useQueryUserInfo(isLogged);
+  const setUserInfo = useSetRecoilState(userInfoAtom);
 
-  // if (isLoading) {
+  // useEffect(() => userInfo && setUserInfo(userInfo), [setUserInfo, userInfo]);
+
+  console.log('ducnh isLoading', isLoading);
+
+  // if (isLogged && isLoading) {
   //   return <div>Loading</div>;
   // }
-
-  console.log('ducnh userInfo', userInfo);
 
   return <Box>{children}</Box>;
 });

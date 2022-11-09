@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useMutationLogout } from 'actions/mutate/logout';
 import Link from 'next/link';
 import { memo, useCallback } from 'react';
+import { useRecoilValue } from 'recoil';
+import { userInfoAtom } from 'recoil/user-info';
 
 interface ActionAuthProps {
   onClose: () => void;
@@ -11,6 +13,9 @@ interface ActionAuthProps {
 
 const ActionAuth: React.FC<ActionAuthProps> = ({ onClose }) => {
   const { mutate: logoutMutate } = useMutationLogout();
+  const userInfo = useRecoilValue(userInfoAtom);
+
+  const { fullName } = userInfo;
 
   const onLogout = useCallback(() => {
     onClose();
@@ -19,6 +24,20 @@ const ActionAuth: React.FC<ActionAuthProps> = ({ onClose }) => {
 
   return (
     <Box>
+      <Box
+        cursor="pointer"
+        borderTopStartRadius={4}
+        borderTopRightRadius={4}
+        onClick={onLogout}
+        transitionDuration="300ms"
+        py={2.5}
+        px={5}
+        _hover={{ bgColor: 'primary.1' }}
+        data-group
+      >
+        <Text>Xin chào, {fullName}</Text>
+      </Box>
+      <Divider />
       <Link href="/thong-tin-ca-nhan">
         <a>
           <Box
