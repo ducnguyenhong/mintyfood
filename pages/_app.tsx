@@ -26,9 +26,9 @@ const MainLayout: React.FC<any> = memo(({ children }) => {
   const isLogged = checkIsLogin();
   const { data: userInfo, isLoading } = useQueryUserInfo(isLogged);
 
-  if (isLoading) {
-    return <div>Loading</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading</div>;
+  // }
 
   console.log('ducnh userInfo', userInfo);
 

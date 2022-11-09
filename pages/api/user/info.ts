@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { getUserInfoFirebase } from 'services/firebase';
 
 interface ResponseData {
-  userInfo?: any;
+  data?: any;
   error?: {
     message: string;
   };
@@ -13,11 +13,7 @@ const getUserInfo = async (req: NextApiRequest, res: NextApiResponse<ResponseDat
   if (req.method === 'GET') {
     getUserInfoFirebase()
       .then((response) => {
-        console.log('ducnh response', response);
-
-        return res.status(200).json({
-          userInfo: response
-        });
+        return res.status(200).json({ data: response || null });
       })
       .catch((error) => {
         return res.status(500).json({ error: { message: get(error, 'message') } });

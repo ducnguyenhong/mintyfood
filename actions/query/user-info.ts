@@ -8,6 +8,6 @@ export const useQueryUserInfo = (isLogged: boolean) => {
       API.request({
         url: '/api/user/info'
       }),
-    { enabled: isLogged }
+    { enabled: isLogged, onSuccess: (response) => response?.data || null }
   );
 };

@@ -5,13 +5,13 @@ import {
   FacebookAuthProvider,
   getAuth,
   GoogleAuthProvider,
-  onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut
 } from 'firebase/auth';
 import { addDoc, collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import get from 'lodash/get';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -87,7 +87,15 @@ const signInWithGoogle = async () => {
 const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     const response = await signInWithEmailAndPassword(auth, email, password);
-    return response;
+    if (response) {
+      const { user } = response;
+      const tokens = get(user, 'stsTokenManager');
+      const userInfo = await getUserInfoFirebase();
+      return {
+        tokens,
+        userInfo
+      };
+    }
   } catch (err) {
     console.error(err);
   }
@@ -129,25 +137,21 @@ const logoutFirebase = () => signOut(auth);
 
 const getUserInfoFirebase = async () => {
   try {
-    const b = await onAuthStateChanged(auth, (user) => user);
-    const a = await onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const q = query(collection(db, 'users'), where('uid', '==', user.uid));
-        return getDocs(q).then((docs) => {
-          if (docs.docs.length) {
-            const { password, ...rest } = docs.docs[0].data();
-            console.log('ducnh rest', rest);
-            return rest;
-          }
-        });
-      } else {
-        console.log('ducnh signed out');
+    const user = auth.currentUser;
+    if (user) {
+      const q = query(collection(db, 'users'), where('uid', '==', user.uid));
+      return getDocs(q).then((docs) => {
+        if (docs.docs.length) {
+          const { password, ...rest } = docs.docs[0].data();
+          return rest;
+        }
+      });
+    } else {
+      console.log('ducnh signed out');
 
-        // User is signed out
-        // ...
-      }
-    });
-    console.log('ducnh aaaaa', b);
+      // User is signed out
+      // ...
+    }
   } catch (e) {
     console.log('ducnh e');
   }
