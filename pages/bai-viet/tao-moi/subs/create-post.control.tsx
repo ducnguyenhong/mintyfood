@@ -3,14 +3,16 @@ import { memo } from 'react';
 
 const CreatePostControl: React.FC = () => {
   return (
-    <Flex gap={8} justifyContent="flex-end">
-      <Button colorScheme="green" variant="outline" w={32}>
-        Xem trước
-      </Button>
+    <Flex justifyContent="flex-end" position="sticky" top="66px" zIndex={10}>
+      <Flex bgColor="#FFF" gap={8} px={4} py={3} borderRadius={5}>
+        <Button colorScheme="green" variant="outline" w={32}>
+          Xem trước
+        </Button>
 
-      <Button colorScheme="green" w={32}>
-        Đăng bài
-      </Button>
+        <Button colorScheme="green" w={32}>
+          Đăng bài
+        </Button>
+      </Flex>
     </Flex>
   );
 };

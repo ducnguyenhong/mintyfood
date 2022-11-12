@@ -3,7 +3,7 @@ import API from 'utils/api';
 
 export const useQueryUserInfo = (isLogged: boolean) => {
   return useQuery(
-    ['USER_INFO'],
+    ['QUERY_USER_INFO'],
     () =>
       API.request({
         url: '/api/user/info'

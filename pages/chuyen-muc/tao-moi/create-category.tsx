@@ -13,7 +13,7 @@ import { slugURL } from 'utils/helper';
 const CreateCategory: NextPage = () => {
   const { register, handleSubmit, reset } = useForm<PostCategoryFormData>({
     defaultValues: {
-      name: '',
+      label: '',
       value: ''
     }
   });
@@ -22,9 +22,9 @@ const CreateCategory: NextPage = () => {
 
   const onSubmit: SubmitHandler<PostCategoryFormData> = useCallback(
     (data) => {
-      const { name } = data;
-      const value = slugURL(name).replaceAll('-', '_').toUpperCase();
-      createMutate({ name, value });
+      const { label } = data;
+      const value = slugURL(label).replaceAll('-', '_').toUpperCase();
+      createMutate({ label, value });
     },
     [createMutate]
   );
@@ -45,7 +45,7 @@ const CreateCategory: NextPage = () => {
                   <FontAwesomeIcon icon={faTh} color="#828282" />
                 </InputLeftElement>
                 <Input
-                  {...register('name', { required: true })}
+                  {...register('label', { required: true })}
                   h={12}
                   _focus={{
                     outline: '2px solid #36af5c',

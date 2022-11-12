@@ -8,7 +8,7 @@ import ProductList from './product-list';
 const Home: NextPage = () => {
   // useEffect(() => {
   //   const a = async () => {
-  //     const querySnapshot = await getDocs(collection(db, 'users'));
+  //     const querySnapshot = await getDocs(collection(db, 'user'));
   //     querySnapshot.forEach((doc) => {
   //       console.log(doc.data());
   //     });

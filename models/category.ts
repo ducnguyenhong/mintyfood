@@ -1,4 +1,9 @@
 export interface PostCategoryFormData {
-  name: string;
+  label: string;
+  value: string;
+}
+
+export interface CategoryItem {
+  label: string;
   value: string;
 }

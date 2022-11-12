@@ -11,8 +11,8 @@ interface ResponseData {
 
 const postCreate = (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
   if (req.method === 'POST') {
-    const { name, value } = req.body;
-    createPostCategoryFirebase(name, value)
+    const { label, value } = req.body;
+    createPostCategoryFirebase(label, value)
       .then(() => {
         return res.status(201).json({
           message: 'Tạo chuyên mục thành công'

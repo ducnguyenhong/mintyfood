@@ -68,10 +68,10 @@ const signInWithGoogle = async () => {
     const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
 
-    const q = query(collection(db, 'users'), where('uid', '==', user.uid));
+    const q = query(collection(db, 'user'), where('uid', '==', user.uid));
     const docs = await getDocs(q);
     if (docs.docs.length === 0) {
-      await addDoc(collection(db, 'users'), {
+      await addDoc(collection(db, 'user'), {
         uid: user.uid,
         name: user.displayName,
         authProvider: 'google',
@@ -114,7 +114,7 @@ const registerWithEmailAndPassword = async (fullName: string, email: string, pas
       status: 'ACTIVE',
       password
     };
-    await addDoc(collection(db, 'users'), newUser);
+    await addDoc(collection(db, 'user'), newUser);
     return {
       data: newUser
     };
@@ -139,7 +139,7 @@ const getUserInfoFirebase = async () => {
   try {
     const user = auth.currentUser;
     if (user) {
-      const q = query(collection(db, 'users'), where('uid', '==', user.uid));
+      const q = query(collection(db, 'user'), where('uid', '==', user.uid));
       return getDocs(q).then((docs) => {
         if (docs.docs.length) {
           const { password, ...rest } = docs.docs[0].data();
@@ -157,8 +157,29 @@ const getUserInfoFirebase = async () => {
   }
 };
 
-const createPostCategoryFirebase = async (name: string, value: string) => {
-  await addDoc(collection(db, 'post-category'), { name, value });
+const getPostCategoryFirebase = async () => {
+  try {
+    const user = auth.currentUser;
+    if (user) {
+      const q = query(collection(db, 'post-category'));
+      return getDocs(q).then((docs) => {
+        if (docs.docs.length) {
+          return docs.docs.map((item) => item.data());
+        }
+      });
+    } else {
+      console.log('ducnh signed out');
+
+      // User is signed out
+      // ...
+    }
+  } catch (e) {
+    console.log('ducnh e');
+  }
+};
+
+const createPostCategoryFirebase = async (label: string, value: string) => {
+  await addDoc(collection(db, 'post-category'), { label, value });
 };
 
 export {
@@ -171,5 +192,6 @@ export {
   sendPasswordReset,
   logoutFirebase,
   getUserInfoFirebase,
-  createPostCategoryFirebase
+  createPostCategoryFirebase,
+  getPostCategoryFirebase
 };
