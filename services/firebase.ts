@@ -12,6 +12,7 @@ import {
 } from 'firebase/auth';
 import { addDoc, collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import get from 'lodash/get';
+import { CreatePostFormData } from 'models/post';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -182,6 +183,10 @@ const createPostCategoryFirebase = async (label: string, value: string) => {
   await addDoc(collection(db, 'post-category'), { label, value });
 };
 
+const createPostFirebase = async (data: CreatePostFormData) => {
+  await addDoc(collection(db, 'post'), data);
+};
+
 export {
   auth,
   db,
@@ -193,5 +198,6 @@ export {
   logoutFirebase,
   getUserInfoFirebase,
   createPostCategoryFirebase,
-  getPostCategoryFirebase
+  getPostCategoryFirebase,
+  createPostFirebase
 };
