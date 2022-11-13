@@ -1,7 +1,6 @@
-import { AspectRatio, Badge, Box, Flex, Text } from '@chakra-ui/react';
+import { Badge, Box, Flex, Text } from '@chakra-ui/react';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ImageX from 'components/image-x';
 import Section from 'components/section';
 import dayjs from 'dayjs';
 import Link from 'next/link';
@@ -12,30 +11,26 @@ const NewsList: React.FC = () => {
     () => [
       {
         id: 1,
-        thumbnail: 'http://freshfoods.vn/images/cam-nang-nau-an-freshfoods.jpg',
-        title: 'Cách làm sữa chua tại nhà',
+        title: 'Cách làm sữa chua tại nhà1',
         description: 'Cách làm sữa chua tại nhà làm sữa chua tại nhà làm sữa chua tại nhà làm sữa chua tại nhà',
         createdAt: 1666504846000
       },
       {
         id: 2,
-        thumbnail: 'http://freshfoods.vn/images/cam-nang-nau-an-freshfoods.jpg',
-        title: 'Cách làm sữa chua tại nhà',
+        title: 'Cách làm sữa chua tại nhà 2',
         description:
           'Cách làm sữa chua tại nhà làm sữa chua tại nhà làm sữa chua tại nhà làm sữa chua tại nhà Cách làm sữa chua tại nhà làm sữa chua tại nhà làm sữa chua tại nhà làm sữa chua tại nhà',
         createdAt: 1666504846000
       },
       {
         id: 3,
-        thumbnail: 'http://freshfoods.vn/images/cam-nang-nau-an-freshfoods.jpg',
-        title: 'Cách làm sữa chua tại nhà',
+        title: 'Cách làm sữa chua tại nhà 3',
         description: 'Cách làm sữa chua tại nhà làm sữa chua tại nhà làm sữa chua tại nhà làm sữa chua tại nhà',
         createdAt: 1666504846000
       },
       {
         id: 4,
-        thumbnail: 'http://freshfoods.vn/images/cam-nang-nau-an-freshfoods.jpg',
-        title: 'Cách làm sữa chua tại nhà',
+        title: 'Cách làm sữa chua tại nhà4',
         description: 'Cách làm sữa chua tại nhà làm sữa chua tại nhà làm sữa chua tại nhà làm sữa chua tại nhà',
         createdAt: 1666504846000
       }
@@ -48,16 +43,16 @@ const NewsList: React.FC = () => {
       <Section title="Tin tức" />
       <Box mt={10}>
         {NEWS_DATA.map((item) => {
-          const { id, title, thumbnail, createdAt, description } = item;
+          const { id, title, createdAt, description } = item;
           return (
             <Flex key={id} mb={10} boxShadow="base" borderRadius={3} overflow="hidden" bgColor="#FFF">
-              <Link href={`${id}`}>
+              {/* <Link href={`${id}`}>
                 <a>
                   <AspectRatio ratio={4 / 3} w={40}>
                     <ImageX src={thumbnail} h={5} />
                   </AspectRatio>
                 </a>
-              </Link>
+              </Link> */}
 
               <Flex direction="column" flex={1} px={5} justifyContent="space-between" pb={3}>
                 <Box>

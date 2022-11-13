@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+import dayjs from 'dayjs';
 import { initializeApp } from 'firebase/app';
 import {
   createUserWithEmailAndPassword,
@@ -11,6 +12,7 @@ import {
   signOut
 } from 'firebase/auth';
 import { addDoc, collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes } from 'firebase/storage';
 import get from 'lodash/get';
 import { CreatePostFormData } from 'models/post';
 
@@ -31,6 +33,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+
+const storage = getStorage(app);
 
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
@@ -187,6 +191,20 @@ const createPostFirebase = async (data: CreatePostFormData) => {
   await addDoc(collection(db, 'post'), data);
 };
 
+const uploadFileFirebase = async (file: any) => {
+  try {
+    const storageRef = ref(storage, `images/mintyfood-${dayjs().format('DD-MM-YYYY-hh-mm-ss')}.jpg`);
+    return uploadBytes(storageRef, file)
+      .then((snapshot) => {
+        console.log('Uploaded a blob or file!', snapshot);
+        return snapshot;
+      })
+      .catch((e) => console.log('ducnh e1', e));
+  } catch (e) {
+    console.log('ducnh e2', e);
+  }
+};
+
 export {
   auth,
   db,
@@ -199,5 +217,6 @@ export {
   getUserInfoFirebase,
   createPostCategoryFirebase,
   getPostCategoryFirebase,
-  createPostFirebase
+  createPostFirebase,
+  uploadFileFirebase
 };
