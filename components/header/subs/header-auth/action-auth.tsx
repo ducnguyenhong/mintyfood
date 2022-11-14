@@ -15,7 +15,7 @@ const ActionAuth: React.FC<ActionAuthProps> = ({ onClose }) => {
   const { mutate: logoutMutate } = useMutationLogout();
   const userInfo = useRecoilValue(userInfoAtom);
 
-  const { fullName } = userInfo;
+  const { fullName } = userInfo || {};
 
   const onLogout = useCallback(() => {
     onClose();
