@@ -26,6 +26,7 @@
     "dayjs": "^1.11.6",
     "firebase": "^9.13.0",
     "firebase-tools": "^11.16.0",
+    "formidable": "^2.0.1",
     "framer-motion": "^6",
     "js-cookie": "^3.0.1",
     "md5": "^2.3.0",
@@ -38,6 +39,7 @@
     "recoil": "^0.7.6"
   },
   "devDependencies": {
+    "@types/formidable": "^2.0.5",
     "@types/md5": "^2.3.2",
     "@types/node": "18.11.0",
     "@types/react": "18.0.21",

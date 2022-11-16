@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-interface ApiConfig {
+interface RequestConfig {
   url: string;
   method?: 'GET' | 'POST';
   params?: any;
@@ -10,7 +10,7 @@ interface ApiConfig {
 }
 
 const API = {
-  request: (config: ApiConfig) => {
+  request: (config: RequestConfig) => {
     const { method = 'GET', url, params, headers, baseURL } = config;
 
     const accessToken = Cookies.get('access-token');
@@ -43,43 +43,32 @@ const API = {
     return axios(requestConfig)
       .then((response) => response.data)
       .catch((error) => Promise.reject(error?.response?.data || error));
+  },
+
+  upload: (file: File | Blob) => {
+    if (!file) {
+      return Promise.resolve(null);
+    }
+    const fileReal = new File([file], 'file');
+    const formData = new FormData();
+    formData.append('file', fileReal);
+    const configApi = {
+      headers: {
+        'content-type': 'multipart/form-data'
+      }
+    };
+
+    return axios
+      .post('/api/upload', formData, configApi)
+      .then((response) => response.data)
+      .catch((error) => {
+        if (error?.response?.data) {
+          const { message } = error.response.data;
+          return Promise.reject(message ? new Error(message) : error);
+        }
+        return Promise.reject(error);
+      });
   }
-
-  // upload: (config) => {
-  //   const { file, type, url } = config;
-  //   if (!file) {
-  //     return Promise.resolve(null);
-  //   }
-
-  //   const urlUpload = url || `${process.env.REACT_APP_STOCKBOOK_CDN}/api/image_uploader?type=${type}`;
-  //   const formData = new FormData();
-  //   formData.append('file', file);
-  //   let newHeaders = {
-  //     'content-type': 'multipart/form-data'
-  //   };
-  //   if (this.accessToken) {
-  //     newHeaders.Authorization = `Bearer ${this.accessToken}`;
-  //   }
-
-  //   const configApi = {
-  //     headers: newHeaders
-  //   };
-
-  //   return axios
-  //     .post(urlUpload, formData, configApi)
-  //     .then((response) => response.data)
-  //     .catch((error) => {
-  //       if (error?.response?.status === 413) {
-  //         return Promise.reject(new Error('Lỗi: Kích thước file tải lên quá lớn'));
-  //       }
-
-  //       if (error?.response?.data) {
-  //         const { message } = error.response.data;
-  //         return Promise.reject(message ? new Error(message) : error);
-  //       }
-  //       return Promise.reject(error);
-  //     });
-  // };
 };
 
 export default API;
