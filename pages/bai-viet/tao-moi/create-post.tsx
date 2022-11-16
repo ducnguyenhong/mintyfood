@@ -65,7 +65,7 @@ const CreatePost: NextPage = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <DashboardSection title="Tạo bài viết mới" />
             <Box px={4} mt={4}>
-              <CreatePostControl />
+              <CreatePostControl editorRef={editorRef} />
               <Box>
                 <FormLabel fontWeight={700}>Tiêu đề</FormLabel>
                 <Input h="40px" {...register('title', { required: true })} borderColor="#CCC" />
