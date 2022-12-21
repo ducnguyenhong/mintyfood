@@ -7,7 +7,15 @@ import AliceCarousel from 'react-alice-carousel';
 
 const HomeIntro: React.FC = () => {
   const arrImageIntro = useMemo(
-    () => ['/images/img-intro.png', '/images/img-intro-2.png', '/images/img-intro-3.png'],
+    () => [
+      '/images/img-intro-1.png',
+      '/images/img-intro-2.png',
+      '/images/img-intro-3.png',
+      '/images/img-intro-4.png',
+      '/images/img-intro-5.png',
+      '/images/img-intro-6.png',
+      '/images/img-intro-7.png'
+    ],
     []
   );
 
@@ -68,10 +76,10 @@ const HomeIntro: React.FC = () => {
           animationType="fadeout"
           autoPlay
           infinite
-          autoPlayInterval={5000}
+          autoPlayInterval={4000}
           disableButtonsControls
           disableDotsControls
-          animationDuration={700}
+          animationDuration={500}
         />
       </Flex>
     </Flex>
