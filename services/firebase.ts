@@ -94,7 +94,7 @@ const logInWithEmailAndPassword = async (email: string, password: string) => {
     const response = await signInWithEmailAndPassword(auth, email, password);
     if (response) {
       const { user } = response;
-      const tokens = get(user, 'stsTokenManager');
+      const tokens: any = get(user, 'stsTokenManager');
       const userInfo = await getUserInfoFirebase();
       return {
         tokens,
