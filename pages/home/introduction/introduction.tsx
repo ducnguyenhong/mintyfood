@@ -2,9 +2,19 @@ import { Button, Flex, Heading, Text } from '@chakra-ui/react';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ImageX from 'components/image-x';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
+import AliceCarousel from 'react-alice-carousel';
 
 const HomeIntro: React.FC = () => {
+  const arrImageIntro = useMemo(
+    () => ['/images/img-intro.png', '/images/img-intro-2.png', '/images/img-intro-3.png'],
+    []
+  );
+
+  const arrIntro = arrImageIntro.map((item) => (
+    <ImageX key={item} src={item} w="full" h={{ xs: '500px', '2xl': '600px' }} objectFit="fill" />
+  ));
+
   return (
     <Flex justifyContent="space-between" alignItems="center" gap={{ xs: 10, '2xl': 28 }}>
       <Flex w="50%" direction="column" pl={{ xs: 32, '2xl': 52 }}>
@@ -53,7 +63,16 @@ const HomeIntro: React.FC = () => {
       </Flex>
 
       <Flex w="50%">
-        <ImageX src="/images/img-intro.png" w="full" h={{ xs: '500px', '2xl': '600px' }} objectFit="fill" />
+        <AliceCarousel
+          items={arrIntro}
+          animationType="fadeout"
+          autoPlay
+          infinite
+          autoPlayInterval={5000}
+          disableButtonsControls
+          disableDotsControls
+          animationDuration={700}
+        />
       </Flex>
     </Flex>
   );

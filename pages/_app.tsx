@@ -12,6 +12,7 @@ import { chakraTheme } from 'configs/chakra-theme';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { memo, useEffect, useMemo } from 'react';
+import 'react-alice-carousel/lib/alice-carousel.css';
 import 'react-multi-carousel/lib/styles.css';
 import { RecoilRoot, useSetRecoilState } from 'recoil';
 import { userInfoAtom } from 'recoil/user-info';
